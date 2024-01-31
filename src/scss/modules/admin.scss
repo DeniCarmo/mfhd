@@ -1,0 +1,75 @@
+@import '../variables.scss';
+@import '../mixins.scss';
+
+.footer-forms#panel-footer {
+  width: 100%;
+  height: auto;
+  background-color: $body-bg;
+  display: flex;
+  align-items: center;
+  flex-flow: column;
+  padding-top: 50px;
+  padding-bottom: 45px;
+
+  .footer-forms {
+    &-t2 {
+      @include text($main-font, 26, 30, 600, $white);
+      width: 100%;
+      height: auto;
+      display: flex;
+      justify-content: center;
+      margin: 35px 0;
+      text-transform: uppercase;
+    }
+    &__label {
+      @include text($main-font, 14, 16, 500, $text);
+    }
+
+    &__input {
+      @include text($main-font, 14, 14, 500, $text);
+      width: 100%;
+      max-width: 350px;
+      height: auto;
+      min-height: 40px;
+      background-color: $white;
+      border: 1px solid $placeholder;
+      border-radius: 10px;
+      padding-left: 10px;
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    &__wrapper {
+      width: 100%;
+      max-width: 500px;
+      height: auto;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      flex-flow: column;
+      border: 1px solid $white;
+      border-radius: 15px;
+      padding: 25px;
+    }
+
+    &__item {
+      width: 100%;
+      max-width: 500px;
+      height: auto;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      flex-flow: column;
+      border: 1px solid $white;
+      border-radius: 15px;
+      padding: 25px;
+      margin-bottom: 15px;
+
+      .footer-forms__input {
+        margin-bottom: 15px;
+      }
+    }
+  }
+}

@@ -1,0 +1,29 @@
+@import url(./modules/search.scss);
+@import url(./modules/header.scss);
+@import url(./modules/home.scss);
+@import url(./modules/subBanners.scss);
+@import url(./modules/genresMenu.scss);
+@import url(./modules/footer.scss);
+@import url(./modules/admin.scss);
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body,
+html {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+}

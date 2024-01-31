@@ -1,0 +1,97 @@
+{
+  "footer": [
+    {
+      "_id": "sections",
+      "sections": [
+        {
+          "_id": "829734a5-915e-44a0-9ae6-695fe6c27b07",
+          "title": "Menu",
+          "items": [
+            {
+              "title": "Movies",
+              "link": "/movies"
+            },
+            {
+              "title": "Series",
+              "link": "/series"
+            },
+            {
+              "title": "Animes",
+              "link": "/anime"
+            },
+            {
+              "title": "Cartoons",
+              "link": "/cartoons"
+            }
+          ]
+        },
+        {
+          "_id": "741f4160-4f65-4970-993e-4da68920e308",
+          "title": "Contact",
+          "items": [
+            {
+              "title": "Mail us",
+              "link": "/"
+            },
+            {
+              "title": "Leave a message",
+              "link": "/"
+            },
+            {
+              "title": "Whatsapp",
+              "link": "/"
+            }
+          ]
+        },
+        {
+          "_id": "033b15f2-bff0-4c58-bc62-c79227ab7cb1",
+          "title": "About",
+          "items": [
+            {
+              "title": "MFHD",
+              "link": "/"
+            },
+            {
+              "title": "Privacy",
+              "link": "/"
+            },
+            {
+              "title": "",
+              "link": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "_id": "socials",
+      "socials": [
+        {
+          "title": "facebook",
+          "link": "/",
+          "_id": "9d4a5179-ac84-4ef5-a8ba-2beb0884fb35"
+        },
+        {
+          "title": "x",
+          "link": "/",
+          "_id": "b11b35b6-9bec-4aa1-984c-41628f3b54a9"
+        },
+        {
+          "title": "telegram",
+          "link": "/",
+          "_id": "35fd8152-c0c7-42b3-9061-a25556bed034"
+        },
+        {
+          "title": "share",
+          "link": "/",
+          "_id": "0543b10b-63b9-43ea-9d23-96d3bb27265e"
+        },
+        {
+          "title": "whatsapp",
+          "link": "/",
+          "_id": "2ab0a0a8-5338-4db3-aedb-a1b2f2537f16"
+        }
+      ]
+    }
+  ]
+}

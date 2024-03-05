@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .form-input{
+    @apply font-sans text-sm font-medium text-mf-grey-light bg-mf-white w-full max-w-[350px] h-auto min-h-10 border border-mf-grey-light rounded-[10px] outline-none pl-[10px];
+  }
+
+  .btn {
+    @apply font-sans text-base rounded-md p-4 flex items-center justify-center text-center;
+  }
+
+  .btn-primary {
+    @apply bg-blue-500 text-white hover:bg-blue-600 duration-300;
+  }
+
+  .btn-danger {
+    @apply bg-mf-red text-white hover:bg-red-800 duration-300;
+  }
+
+  .btn-warning {
+    @apply bg-mf-yellow text-white hover:bg-yellow-500 duration-300;
+  }
+
+  .btn-success {
+    @apply bg-emerald-500 text-white hover:bg-emerald-600 duration-300;
+  }
+
+  .container {
+    @apply w-full max-w-[1180px] px-4 mx-auto;
+  }
+
+  .label {
+    @apply text-sm text-mf-grey-light font-sans mb-1;
+  }
+
+  .title-bg {
+    @apply absolute bottom-0 left-0 m-0 w-full flex flex-wrap gap-1 items-center justify-start bg-gradient-to-tr from-mf-grey-dark to-transparent
+  }
+}

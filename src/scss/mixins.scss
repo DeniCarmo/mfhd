@@ -1,7 +1,0 @@
-@mixin text($fFamily, $fSize, $lHeight, $fWeight, $color) {
-  font-family: $fFamily;
-  font-size: calc($fSize / 16) + rem;
-  line-height: calc($lHeight / 16) + rem;
-  font-weight: $fWeight;
-  color: $color;
-}

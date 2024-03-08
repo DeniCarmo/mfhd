@@ -33,27 +33,25 @@ export const EditSection = () => {
     setSectionItems(selectedSection.items);
   };
 
-  const handleItemInput = (e: React.ChangeEvent<HTMLInputElement>, title: string) => {
-    const newItem: SectionItemType = itemInitialState;
+  const handleItems = (e: React.ChangeEvent<HTMLInputElement>, i: number) => {
+    const { name, value } = e.target;
 
-    if (e.target.name === 'title') {
-      newItem.title = e.target.value;
-    }
+    const onChangeValue: SectionItemType[] = [...sectionItems!];
 
-    if (e.target.name === 'link') {
-      newItem.link = e.target.value;
-    }
+    console.log(onChangeValue[i]);
 
-    sectionItems?.map((item) => {
-      if (item.title === title) {
-        item = { ...newItem };
-      }
-    });
+    onChangeValue[i][name as keyof SectionItemType] = value;
 
-    dispatch(updateItem(selectedSection));
+    setItemEdit(onChangeValue[i]);
   };
 
-  const handleSaveSection = () => {};
+  const handleSaveSection = () => {
+    console.log(selectedSection);
+
+    selectedSection.items = sectionItems;
+
+    console.log(selectedSection);
+  };
 
   if (isLoading) {
     return <h3>Loading</h3>;
@@ -67,7 +65,7 @@ export const EditSection = () => {
         <div className="flex w-full items-center justify-start gap-2">
           <select
             name="title"
-            className="form-input min-h-11 rounded-md"
+            className="form-input min-h-11 rounded-md w-full"
             value={selectedSection.title}
             onChange={(e) => handleSelect(e)}
           >
@@ -88,7 +86,7 @@ export const EditSection = () => {
 
         <div className="w-full mt-4">
           <ul className="flex flex-col gap-y-1">
-            {selectedSection.items?.map((item, i) => {
+            {sectionItems?.map((item, i) => {
               return (
                 <li className="flex items-center mb-4 justify-start w-full gap-2" key={i}>
                   <div className="flex flex-col items-center w-full max-w-[350px]">
@@ -96,14 +94,14 @@ export const EditSection = () => {
                       className="text-md flex items-center justify-start pl-2 mb-2 text-start outline-none bg-mf-grey-dark text-white w-full h-auto min-h-11 border border-white rounded-md"
                       name="title"
                       value={item.title}
-                      onChange={(e) => handleItemInput(e, item.title)}
+                      onChange={(e) => handleItems(e, i)}
                     />
 
                     <input
                       className="text-md flex items-center justify-start pl-2 text-start outline-none bg-mf-grey-dark text-white w-full h-auto min-h-11 border border-white rounded-md"
                       name="link"
                       value={item.link}
-                      onChange={(e) => handleItemInput(e, item.link)}
+                      onChange={(e) => handleItems(e, i)}
                     />
                   </div>
 

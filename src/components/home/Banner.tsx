@@ -17,7 +17,7 @@ export const Banner = () => {
   };
 
   return (
-    <section className="home-banner">
+    <section className="home-banner container max-w-[1920px]">
       <Slider {...sliderSettings}>
         {bannersHome.map((banner) => {
           return (

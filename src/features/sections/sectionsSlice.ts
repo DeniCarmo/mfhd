@@ -30,7 +30,22 @@ const sectionsSlice = createSlice({
   name: 'sectionsSlice',
   initialState,
   reducers: {
-    updateItem: (state, { payload }) => {},
+    updateItem: (state, { payload }) => {
+      state.sections = state.sections.map((section) => {
+        if (section.id === payload.id) {
+          section.items = payload.items;
+        }
+        return section;
+      });
+    },
+    addNewItem: (state, { payload }) => {
+      state.sections.map((section) => {
+        if (section.id === payload.id) {
+          section.items = payload.newItem;
+          return section;
+        }
+      });
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -48,6 +63,6 @@ const sectionsSlice = createSlice({
   },
 });
 
-export const { updateItem } = sectionsSlice.actions;
+export const { updateItem, addNewItem } = sectionsSlice.actions;
 
 export default sectionsSlice.reducer;

@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { SectionState } from '../../types/sections';
-import { addDoc, collection } from 'firebase/firestore';
+import { SectionState, SectionType } from '../../types/sections';
+import { addDoc, collection, doc, setDoc } from 'firebase/firestore';
 import { db } from '../../lib/controller';
 
 const initialState: SectionState = {
@@ -18,6 +18,26 @@ export const addSection = createAsyncThunk(
       const newSection = { id: addSectionRef.id, section };
 
       return newSection;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error);
+    }
+  }
+);
+
+export const updateSectionDB = createAsyncThunk(
+  'section/updateSection',
+  async (section: SectionType, thunkAPI) => {
+    try {
+      const getSection = doc(db, `sections/${section.id}`);
+
+      const updatedSection = {
+        title: section.title,
+        items: section.items,
+      };
+
+      await setDoc(getSection, updatedSection, { merge: true });
+
+      return updatedSection;
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
     }

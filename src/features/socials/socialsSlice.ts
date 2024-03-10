@@ -26,7 +26,11 @@ export const getAllSocials = createAsyncThunk('socials/getSocials', async (_, th
 const socialsSlice = createSlice({
   name: 'socialsSlice',
   initialState,
-  reducers: {},
+  reducers: {
+    updateSocial: (state, { payload }) => {
+      state.socials = payload;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(getAllSocials.pending, (state) => {
@@ -42,5 +46,5 @@ const socialsSlice = createSlice({
       });
   },
 });
-
+export const { updateSocial } = socialsSlice.actions;
 export default socialsSlice.reducer;

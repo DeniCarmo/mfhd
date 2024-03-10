@@ -1,7 +1,9 @@
+import { NewSocialsType } from './../../types/socials';
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { SocialState } from '../../types/socials';
-import { addDoc, collection } from 'firebase/firestore';
+import { addDoc, collection, deleteDoc, doc, setDoc } from 'firebase/firestore';
 import { db } from '../../lib/controller';
+import { toast } from 'react-toastify';
 
 const initialState: SocialState = {
   id: '',
@@ -22,6 +24,41 @@ export const addSocial = createAsyncThunk(
       };
 
       return newSocial;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error);
+    }
+  }
+);
+
+export const updateSocialDB = createAsyncThunk(
+  'social/updateSocial',
+  async (social: NewSocialsType, thunkAPI) => {
+    try {
+      const getSocial = doc(db, `socials/${social.id}`);
+
+      const updatedSocial = {
+        title: social.title,
+        link: social.link,
+      };
+
+      await setDoc(getSocial, updatedSocial, { merge: true });
+
+      toast.success('Social successfully updated.');
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error);
+    }
+  }
+);
+
+export const deleteSocialDB = createAsyncThunk(
+  'social/deleteSocial',
+  async (id: string, thunkAPI) => {
+    try {
+      const document = doc(db, `socials/${id}`);
+
+      await deleteDoc(document);
+
+      toast.success('Social successfully deleted.');
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
     }
